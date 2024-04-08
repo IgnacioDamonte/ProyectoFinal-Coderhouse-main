@@ -15,6 +15,7 @@
 						<th>Category</th>
 						<th>Quantity</th>
 						<th>Price by unit</th>
+						<th>Borrar</th>
 					</tr>
 				</thead>
 				<tbody class='bodyCart'>
@@ -38,7 +39,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<button>Comprar</button>
+			<button class="buy-button">Comprar</button>
 			<button id='checkout-btn'>Comprar con Mercado Pago</button>
 			<div id='wallet_container'></div>
 		</div>
@@ -78,9 +79,10 @@
 
 	const deleteProduct = async (pid) => {
     await fetch("/api/carts/{{_id}}/products/"+pid, {method: "DELETE"})
-    window.location.replace("/carts/{{_id    }}")
+    window.location.replace("/carts/{{_id	}}")
   }
 
+	
 </script>
 <footer class="fixFooter">
 	Copyright ©Barsovia

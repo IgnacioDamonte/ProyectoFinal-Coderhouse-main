@@ -5,6 +5,7 @@ import { cartsService, usersService } from "../services/index.js"
 import passportJWT from "passport-jwt"
 import { isValidPassword, createHash, jwtSign, generateToken } from "../utils.js"
 import { logger } from "../utils/logger.js"
+import { CLIENTSECRET,CLIENTID } from "./config.js"
 
 const LocalStrategy = local.Strategy
 const JWTStrategy = passportJWT.Strategy
@@ -72,8 +73,8 @@ const initializePassport = () => {
   }))
 
   passport.use("github", new GithubStrategy({
-    clientID: " Iv1.1f6612b8149317a4",
-    clientSecret: "3295d7bd935ad6062fd9a63077c5dfd4f653ce74",
+    clientID: process.env.CLIENTID,
+    clientSecret: process.env.CLIENTSECRET ,
     callbackURL: "http://127.0.0.1:8080/api/session/githubcallback"
   }, async (accessToken, refreshToken, profile, done) => {
     try {

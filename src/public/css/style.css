@@ -39,13 +39,24 @@ li{
   display: flex;
   justify-content: space-around;
 }
+
+.disappearButton {
+	display: none;
+}
 /*Cart*/
 .bodyCart {
   background-color: rgb(77, 4, 4);
 }
 
-
-
+.cartText{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.cartColor{
+  background-color: black;
+}
 /*Products*/
 .tBodyProducts{
   background-color: rgb(77, 4, 4);
@@ -63,6 +74,32 @@ li{
   font-size: 35px;
   -webkit-text-stroke: 0.1px rgb(238, 233, 238);
   
+}
+
+/*ResetPassword*/
+.container-of-reset-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  padding: 40px;
+}
+.reset-container h1{
+  color: white;
+}
+.new-Pass {
+  border: 1px solid rgb(255, 255, 255);
+}
+.text-similar-pass{
+  margin-top: 10%;
 }
 /*Chat*/
 .bodyChat{
@@ -93,6 +130,7 @@ h2{
 .sendButton{
   display: flex;
   margin-top: 3%;
+  color: black;
 }
 h3{
   padding: 2%;
@@ -152,7 +190,15 @@ button {
   line-height: 30px
 }
 input{
-  color: rgb(241, 238, 238);
+  color: rgb(14, 13, 13);
+}
+#emailText{
+  text-align: center;
+  color: white;
+  margin-top: 7px;
+  background-color: black;
+  border: 1px solid white;
+  padding: 0;
 }
 .containerLogin{
   width: 100%;

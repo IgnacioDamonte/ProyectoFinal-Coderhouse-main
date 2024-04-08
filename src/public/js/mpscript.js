@@ -2,7 +2,10 @@ const mp = new MercadoPago('TEST-71aa0290-9f70-4efa-b44e-d2d4d761b77e', {
 	locale: 'es-AR',
 });
 
-document.getElementById('checkout-btn').addEventListener('click', async () => {
+const mpButton = document.getElementById('checkout-btn');
+mpButton.classList.remove('disappearButton');
+
+mpButton.addEventListener('click', async () => {
 	try {
 		// Calculate the total price of the cart
 		const items = [];
@@ -15,7 +18,7 @@ rows.forEach((row) => {
 });
 
 		const response = await fetch(
-			'http://localhost:8080/api/carts/create_preference',
+			'/api/carts/create_preference',
 			{
 				method: 'POST',
 				headers: {
@@ -40,11 +43,12 @@ const createCheckoutButton = (preferenceId) => {
 	const bricksBuilder = mp.bricks();
 
 	const renderComponent = async () => {
-		if (window.checkoutButton) window.checkoutButton.unmount();
+		mpButton.classList.add('disappearButton');;
+
 		await bricksBuilder.create('wallet', 'wallet_container', {
 			initialization: {
 				preferenceId: preferenceId,
-				redirectMode:'modal',
+				redirectMode:'blank',
 			},
 		});
 	};
