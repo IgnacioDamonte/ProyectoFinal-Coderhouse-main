@@ -82,7 +82,7 @@ export const changePasswordMail = async (req, res) => {
 
     const token = generateToken(user, "1h")
 
-    const url = `/reset-password?token=${token}`
+    const url = `https://proyectofinal-coderhouse-main-production.up.railway.app/reset-password?token=${token}`
 
     await mail.send(email, "Cambiar contraseña", `${url}`)
 
